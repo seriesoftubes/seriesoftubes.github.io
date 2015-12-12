@@ -4,10 +4,12 @@ var blog = document.getElementById('blog');
 var intro = document.getElementById('intro');
 var blogIcon = document.getElementById('wordpress-icon');
 var blogIconImage = blogIcon.children[0];
+
 var blogIsShowing = false;
 
 var STATE_ACTIVE = 'active';
 var STATE_PRESSED = 'pressed';
+
 
 var toggleBlog = function(evt) {
   evt.preventDefault();
@@ -24,6 +26,7 @@ var toggleBlog = function(evt) {
 
   blogIsShowing = !blogIsShowing;
 };
+
 
 blogIcon.addEventListener('click', toggleBlog);
 
