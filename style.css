@@ -81,3 +81,8 @@ a:visited {
 #blog nav button.showing {
   display: inline;
 }
+
+
+#article-thoughts-on-go li {
+  font-weight: bold;
+}
