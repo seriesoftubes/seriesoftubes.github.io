@@ -59,10 +59,10 @@
           <ol>
             <li>Code gets 10X harder to maintain as soon as you step into the realm of multi-threading.</li>
             <p>
-            Humans are built to understand the world as a story of sequential events.  Since single-threaded code boils down to a sequence of steps, naturally we can understand it easily.  Multi-threaded code is unnaturally hard to understand, so for it to be maintainable, it's <em>especially</em> important for the code to enable humans to easily envision what is going on inside it. Go's utter lack of features makes it easier to understand multi-threaded programs (especially ones you didn't personally write).
+            Humans are built to understand the world as a story of sequential events.  Multi-threaded code throws that model of reality out the window.  For multi-threaded code, it's <em>even more important</em> than usual for humans to be able to easily form a mental model of what's going on inside it. Go's utter lack of features makes it easier to understand multi-threaded programs (especially ones you didn't personally write).
             </p>
             <p>
-            All Go programs are limited to a tiny number of concurrency primitives with well-known behaviors, and further, no one is allowed to use inheritance/generics to mix complexity into the primitives.  Yes, that means Go isn't nearly as concise as other concurrency-friendly languages.  But that also means that when you look at Go code (even someone else's Go code), you can feel assured that nothing too crazy is going on.  It's just not even possible for there to be a tangled mess of inheritance/mixins.
+            All Go programs are limited to a tiny number of concurrency primitives with well-known behaviors, and further, no one is allowed to use inheritance/generics to mix complexity into the primitives.  Yes, that means Go isn't nearly as concise as other concurrency-friendly languages.  But that also means that when you look at Go code (even someone else's Go code), you can feel assured that nothing too crazy is going on.  It's just not even possible for there to be a tangled mess of side-effects from inheritance/mixins.
             </p>
             <p>
             Nick Snyder wrote a great
