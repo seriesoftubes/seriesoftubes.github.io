@@ -14,10 +14,49 @@ body {
   padding: 0 0 2em 5em;
 }
 
+section {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+
+  -webkit-transition: all 0.8s ease-in-out;
+  -moz-transition: all 0.8s ease-in-out;
+  -o-transition: all 0.8s ease-in-out;
+  -ms-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-out;
+}
+
+section.active {
+    opacity: 1;
+    height: auto;
+}
+
 nav img {
-    vertical-align: top;
-    display:  block;
-    float: left;
-    margin: 0.3em;
-    border-radius: 10%;
+  vertical-align: top;
+  display:  block;
+  float: left;
+  margin: 0.3em;
+  border-radius: 10%;
+
+  box-shadow: 3px 1px 1px black;
+
+  -webkit-transition: box-shadow 0.2s ease-in-out;
+  -moz-transition: box-shadow 0.2s ease-in-out;
+  -o-transition: box-shadow 0.2s ease-in-out;
+  -ms-transition: box-shadow 0.2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+nav img:hover {
+  border: 0.05em outset #333333;
+  box-shadow: 10px 5px 5px black;
+}
+
+nav img:active, nav img.pressed {
+  border: 0.1em outset #222222;
+  box-shadow: inset 0.2em 0 0 0.2em #27496d, inset 0 0.5em 1em #193047;
+}
+
+#wordpress-icon:hover {
+  cursor: pointer;
 }
