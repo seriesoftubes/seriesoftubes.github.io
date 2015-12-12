@@ -1,11 +1,14 @@
 
 body {
-  color: #333333;
+  color: #636268;
   font-family: Georgia, Serif;
-  font-size: 1.5em;
+  font-size: 1.3em;
   padding: 2em 0 1em 3em;
 }
 
+h1, h2, h3 {
+  color: #333333;
+}
 
 #my-name {
   line-height: 0.3em;
@@ -61,6 +64,7 @@ nav img:active {
 
 /* Give nice appearance to all anchor tags. */
 a {
+  color: black;
   text-decoration: none;
 }
 a:hover {
