@@ -71,7 +71,7 @@
 
             <li>Knowledge of abstractions is lost as devs switch teams/companies.  One person's promotion becomes another's hunk of incomprehensible garbage to debug.</li>
             <p>
-            Programmers like creating abstractions.  The most successful abstractions enabled massive progress in the world of software.  But &lt;cynic-hat engage="true"&gt; most abstractions won't go on to become super popular ideas that everyone knows about.  Yet, in lots of companies, influencing others to use your abstractions can help get you promoted.  Right now, there are countless battles of abstractions raging on, because Joe wants to get promoted instead of Sue.  I realize that competition can improve stuff, but a lot of the time, intra-company competitions just impede progress for everyone and leave messy code behind. &lt;/cynic-hat&gt;
+            Programmers like creating abstractions.  The most successful abstractions enabled massive progress in the world of software.  But &lt;cynic-hat engage="true"&gt; most abstractions won't go on to become super popular ideas that everyone knows about.  Yet, in lots of companies, influencing others to use your abstractions can help get you promoted.  Right now, there are countless battles of abstractions raging on, because Joe wants to get promoted instead of Sue.  I realize that competition can improve stuff, but much of the time, intra-company competitions just impede progress for everyone and leave messy code behind. &lt;/cynic-hat&gt;
             </p>
             <p>
             Go encourages you to keep calm and carry on building with its tiny set of simple building blocks, rather than writing the One Abstraction To Rule Them All.  Example: when I started with Go, I made a generic group-by function like Python's itertools.groupby.  It worked, had 100% test coverage, and was fast-ish.  But it took almost the same amount of code to call my generic iterator as it did to write a hand-tuned loop to accomplish the same thing.  Plus (as a reviewer pointed out), my supposedly-generic code wasn't generic enough to cover myriad cases that arise during certain concurrency conditions.
@@ -84,7 +84,6 @@
             <p>
             This is just icing on the cake.
             </p>
-
             <p>
             Although I've never worked on a huge C++ project, I've seen firsthand that long compile/test/deploy times incentivize devs to discard features and/or cut corners, especially when there's a tight deadline.  In the long run, teams that can't iterate quickly will probably go bankrupt and/or lose devs to boredom/frustration.  Obviously the faster you can iterate, the better off you are.  Go compiles way, way faster than C++ in general, but throw in multi-threading with accurate race detection, and the difference is even greater.  Go's race detector guarantees 0 false positives (which I'm not sure is even possible to do in other languages) and it only increases run time and memory usage by like 10X while it's active.
             </p>
