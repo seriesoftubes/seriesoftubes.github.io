@@ -95,20 +95,11 @@
         document.getElementById('blog')
     );
 
-    var btnBackToPosts = document.getElementById('btn-back-to-post-links');
-
     var blogCtrl = new BlogController(
         document.getElementById('blog-post'),
         document.getElementById('blog-post-links'),
-        btnBackToPosts,
+        document.getElementById('btn-back-to-post-links')
     );
-
-    document.getElementById('btn-back-to-home').addEventListener('click', function() {
-      window.location.href = '#';
-    });
-    btnBackToPosts.addEventListener('click', function() {
-      window.location.href = '#/posts';
-    });
 
     var changeRoute = function(urlHash) {
       var home = function() {
