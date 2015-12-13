@@ -74,7 +74,9 @@ a:visited {
   color: #bebcb9;
 }
 
-
+#blog article {
+  max-width: 45em;
+}
 #blog nav button {
   display: none;
 }
