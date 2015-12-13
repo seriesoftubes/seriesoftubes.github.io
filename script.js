@@ -8,16 +8,19 @@
     this.blogIsShowing_ = blog.classList.contains(SHOWING);
   };
 
+  MainController.prototype.showBlog = function() {
+    this.blog_.classList.add(SHOWING);
+    this.home_.classList.remove(SHOWING);
+  };
+
+  MainController.prototype.hideBlog = function() {
+    this.blog_.classList.remove(SHOWING);
+    this.home_.classList.add(SHOWING);
+  };
+
   /** Shows the blog if it's hiding; hides it if it's showing. */
   MainController.prototype.showOrHideBlog = function() {
-    if (this.blogIsShowing_) {
-      this.blog_.classList.remove(SHOWING);
-      this.home_.classList.add(SHOWING);
-    } else {
-      this.blog_.classList.add(SHOWING);
-      this.home_.classList.remove(SHOWING);
-    }
-
+    this.blogIsShowing_ ? this.hideBlog() : this.showBlog();
     this.blogIsShowing_ = !this.blogIsShowing_;
   };
 
@@ -104,23 +107,51 @@
     );
 
     document.getElementById('link-from-home-to-blog').addEventListener('click', function() {
-      mainCtrl.showOrHideBlog();
+      window.location.href = '#/posts';
     });
     btnBackToHome.addEventListener('click', function() {
-      blogCtrl.goBackToPostsList();
-      mainCtrl.showOrHideBlog();
       window.location.href = '#';
     });
     btnBackToPosts.addEventListener('click', function() {
-      blogCtrl.goBackToPostsList();
       window.location.href = '#/posts';
     });
 
-    var blogPostLinks = document.getElementsByClassName('blog-post-link');
-    for (var i = 0; i < blogPostLinks.length; i++) {
-      var link = blogPostLinks[i];
-      var postId = link.children[0].id.slice('link-for-article-'.length);
-      link.addEventListener('click', blogCtrl.showBlogPost.bind(blogCtrl, postId));
-    }
+    var changeRoute = function(urlHash) {
+      var home = function() {
+        blogCtrl.goBackToPostsList();
+        mainCtrl.hideBlog();
+      };
+
+      var posts = function() {
+        blogCtrl.goBackToPostsList();
+        mainCtrl.showBlog();
+      };
+
+      var post = function(postId) {
+        mainCtrl.showBlog();
+        blogCtrl.showBlogPost(postId);
+      };
+
+      var blogPostHashes = {};
+      var linkContainers = document.getElementsByClassName('blog-post-link');
+      for (var i = 0; i < linkContainers.length; i++) {
+        var anchor = linkContainers[i].children[0];
+        blogPostHashes[anchor.getAttribute('href')] = true;
+      }
+
+      if (urlHash in {'#': 1, '/': 1, '': 1, '#/': 1}) {
+        home();
+      } else if (urlHash === '#/posts') {
+        posts();
+      } else if (blogPostHashes[urlHash]) {
+        post(urlHash.slice('#/posts/'.length));
+      } else {
+        home();
+      }
+    };
+    changeRoute(window.location.hash);
+    window.addEventListener('hashchange', function(evt) {
+      changeRoute(window.location.hash);
+    });
   })();
 })();
