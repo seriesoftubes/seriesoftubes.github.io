@@ -1,5 +1,5 @@
 (function() {
-var STATE_SHOWING = 'showing';
+var SHOWING = 'showing';
 
 var blog = document.getElementById('blog');
 var home = document.getElementById('home');
@@ -7,11 +7,11 @@ var home = document.getElementById('home');
 var blogIsShowing = false;
 var toggleBlogSection = function() {
   if (blogIsShowing) {
-    blog.classList.remove(STATE_SHOWING);
-    home.classList.add(STATE_SHOWING);
+    blog.classList.remove(SHOWING);
+    home.classList.add(SHOWING);
   } else {
-    blog.classList.add(STATE_SHOWING);
-    home.classList.remove(STATE_SHOWING);
+    blog.classList.add(SHOWING);
+    home.classList.remove(SHOWING);
   }
 
   blogIsShowing = !blogIsShowing;
@@ -27,18 +27,18 @@ var hideListOfPosts = function() { listOfPosts.style.display = 'none' };
 var showListOfPosts = function() { listOfPosts.style.display = 'block' };
 
 var shownPost = null;
-var hideTheBlogPost = function() { shownPost && shownPost.classList.remove(STATE_SHOWING) };
+var hideTheBlogPost = function() { shownPost && shownPost.classList.remove(SHOWING) };
 var showBlogPost = function(postId) {
   shownPost = document.getElementById(postId);
-  shownPost.classList.add(STATE_SHOWING);
+  shownPost.classList.add(SHOWING);
   hideListOfPosts();
-  btnBackToPosts.classList.add(STATE_SHOWING);
+  btnBackToPosts.classList.add(SHOWING);
 };
 
 var backToPosts = function() {
+  hideTheBlogPost();
   showListOfPosts();
-  btnBackToPosts.classList.remove(STATE_SHOWING);
-  hideTheBlogPost()
+  btnBackToPosts.classList.remove(SHOWING);
 };
 btnBackToHome.addEventListener('click', function() {
   backToPosts();
