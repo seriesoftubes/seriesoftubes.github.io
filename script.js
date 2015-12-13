@@ -31,7 +31,7 @@
     this.cachedPosts_ = {};
   };
 
-  BlogController.prototype.hideTheBlogPost = function() {
+  BlogController.prototype.hideTheBlogPost_ = function() {
     if (this.postContainer_) this.postContainer_.classList.remove(SHOWING);
   };
 
@@ -47,7 +47,7 @@
     this.listOfPosts_.style.display = 'none';
   };
 
-  BlogController.prototype.showListOfPosts = function() {
+  BlogController.prototype.showListOfPosts_ = function() {
     this.listOfPosts_.style.display = 'block';
   };
 
@@ -81,8 +81,8 @@
   };
 
   BlogController.prototype.goBackToPostsList = function() {
-    this.hideTheBlogPost();
-    this.showListOfPosts();
+    this.hideTheBlogPost_();
+    this.showListOfPosts_();
     this.hideBackToPostsButton_();
   };
 
@@ -106,13 +106,14 @@
     document.getElementById('link-from-home-to-blog').addEventListener('click', function() {
       mainCtrl.showOrHideBlog();
     });
-
     btnBackToHome.addEventListener('click', function() {
       blogCtrl.goBackToPostsList();
       mainCtrl.showOrHideBlog();
+      window.location.href = '#';
     });
     btnBackToPosts.addEventListener('click', function() {
-      blogCtrl.goBackToPostsList()
+      blogCtrl.goBackToPostsList();
+      window.location.href = '#/posts';
     });
 
     var blogPostLinks = document.getElementsByClassName('blog-post-link');
