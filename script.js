@@ -106,9 +106,6 @@
         btnBackToHome
     );
 
-    document.getElementById('link-from-home-to-blog').addEventListener('click', function() {
-      window.location.href = '#/posts';
-    });
     btnBackToHome.addEventListener('click', function() {
       window.location.href = '#';
     });
