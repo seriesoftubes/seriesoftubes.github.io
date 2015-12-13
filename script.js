@@ -27,7 +27,7 @@
     this.btnBackToPosts_ = backToPostsButton;
     this.btnBackToHome_ = backToHomeButton;
 
-    this.shownPost_ = null;
+    this.shownPost_ = document.getElementById('blog-post');
   };
 
   BlogController.prototype.hideTheBlogPost = function() {
@@ -51,11 +51,21 @@
   };
 
   BlogController.prototype.showBlogPost = function(postId) {
-    this.shownPost_ = document.getElementById(postId);
-    this.shownPost_.classList.add(SHOWING);
+    var request = new XMLHttpRequest();
+    request.responseType = 'document';
+    request.overrideMimeType('text/html; charset=utf-8');
+    var self = this;
+    request.onload = function() {
+      self.shownPost_.innerHTML = '';
+      // Assumes that your post has 1 div that contains the whole post.
+      self.shownPost_.appendChild(request.response.body.childNodes[0]);
+    };
+    request.open('GET', '/posts/' + postId + '.html');
+    request.send();
 
     this.hideListOfPosts_();
     this.showBackToPostsButton_();
+    this.shownPost_.classList.add(SHOWING);
   };
 
   BlogController.prototype.goBackToPostsList = function() {
@@ -95,7 +105,7 @@
     var blogPostLinks = document.getElementsByClassName('blog-post-link');
     for (var i = 0; i < blogPostLinks.length; i++) {
       var link = blogPostLinks[i];
-      var postId = link.children[0].id.slice('link-for-'.length);
+      var postId = link.children[0].id.slice('link-for-article-'.length);
       link.addEventListener('click', blogCtrl.showBlogPost.bind(blogCtrl, postId));
     }
   })();
