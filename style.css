@@ -1,9 +1,9 @@
 
-body {
+main {
   color: #636268;
   font-family: Georgia, Serif;
   font-size: 1.3em;
-  padding: 2em 0 1em 3em;
+  padding: 2em;
 }
 
 h1, h2, h3 {
