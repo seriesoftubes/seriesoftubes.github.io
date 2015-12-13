@@ -27,6 +27,8 @@
     this.listOfPosts_ = listOfPosts;
     this.btnBackToPosts_ = backToPostsButton;
     this.btnBackToHome_ = backToHomeButton;
+
+    this.cachedPosts_ = {};
   };
 
   BlogController.prototype.hideTheBlogPost = function() {
@@ -49,7 +51,7 @@
     this.listOfPosts_.style.display = 'block';
   };
 
-  BlogController.prototype.showBlogPost = function(postId) {
+  BlogController.prototype.loadBlogPostAsync_ = function(postId) {
     var request = new XMLHttpRequest();
     request.responseType = 'document';
     request.overrideMimeType('text/html; charset=utf-8');
@@ -57,10 +59,21 @@
     request.onload = function() {
       self.postContainer_.innerHTML = '';
       // Assumes that your post has 1 div that contains the whole post.
-      self.postContainer_.appendChild(request.response.body.childNodes[0]);
+      var postNode = request.response.body.childNodes[0];
+      self.cachedPosts_[postId] = postNode;
+      self.postContainer_.appendChild(postNode);
     };
     request.open('GET', '/posts/' + postId + '.html');
     request.send();
+  };
+
+  BlogController.prototype.showBlogPost = function(postId) {
+    if (postId in this.cachedPosts_) {
+      this.postContainer_.innerHTML = '';
+      this.postContainer_.appendChild(this.cachedPosts_[postId]);
+    } else  {
+      this.loadBlogPostAsync_(postId);
+    }
 
     this.hideListOfPosts_();
     this.showBackToPostsButton_();
