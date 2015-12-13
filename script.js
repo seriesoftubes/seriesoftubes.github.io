@@ -22,16 +22,15 @@
   };
 
 
-  var BlogController = function(listOfPosts, backToPostsButton, backToHomeButton) {
+  var BlogController = function(postContainer, listOfPosts, backToPostsButton, backToHomeButton) {
+    this.postContainer_ = postContainer;
     this.listOfPosts_ = listOfPosts;
     this.btnBackToPosts_ = backToPostsButton;
     this.btnBackToHome_ = backToHomeButton;
-
-    this.shownPost_ = document.getElementById('blog-post');
   };
 
   BlogController.prototype.hideTheBlogPost = function() {
-    if (this.shownPost_) this.shownPost_.classList.remove(SHOWING);
+    if (this.postContainer_) this.postContainer_.classList.remove(SHOWING);
   };
 
   BlogController.prototype.showBackToPostsButton_ = function() {
@@ -56,16 +55,16 @@
     request.overrideMimeType('text/html; charset=utf-8');
     var self = this;
     request.onload = function() {
-      self.shownPost_.innerHTML = '';
+      self.postContainer_.innerHTML = '';
       // Assumes that your post has 1 div that contains the whole post.
-      self.shownPost_.appendChild(request.response.body.childNodes[0]);
+      self.postContainer_.appendChild(request.response.body.childNodes[0]);
     };
     request.open('GET', '/posts/' + postId + '.html');
     request.send();
 
     this.hideListOfPosts_();
     this.showBackToPostsButton_();
-    this.shownPost_.classList.add(SHOWING);
+    this.postContainer_.classList.add(SHOWING);
   };
 
   BlogController.prototype.goBackToPostsList = function() {
@@ -85,6 +84,7 @@
     );
 
     var blogCtrl = new BlogController(
+        document.getElementById('blog-post'),
         document.getElementById('blog-post-links'),
         btnBackToPosts,
         btnBackToHome
