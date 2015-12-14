@@ -78,11 +78,16 @@ a:hover {
 #blog-navigation a:visited {
   color: #bebcb9;
 }
-#blog-navigation button {
+#blog-back-links span {
   display: none;
+  font-size: 0.777em;
+  opacity: 0.6;
 }
-#blog-navigation button.showing {
+#blog-back-links span.showing {
   display: inline;
+}
+#btn-back-to-post-links {
+  padding-left: 1em;
 }
 #blog-post {
   max-width: 45em;
