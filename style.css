@@ -98,24 +98,25 @@ a:hover {
 /* Settings for specific blog posts. */
 
 /* For the Go post, use same font as Go docs. */
-#blog-post #blog-post-on-go {
+#blog-post-on-go {
   color: #222;
   font-size: 16px;
   font-family: Arial, sans-serif;
   line-height: 1.3em;
 }
-#blog-post #blog-post-on-go h1,h2 {
+#blog-post-on-go h1 {
+  font-size: 28px;
   line-height: 1;
   color: #375EAB;
   font-weight: bold;
 }
-#blog-post #blog-post-on-go h1 {
-  font-size: 28px;
-}
-#blog-post #blog-post-on-go h2 {
+#blog-post-on-go h2 {
   font-size: 20px;
+  line-height: 1;
+  color: #375EAB;
+  font-weight: bold;
 }
-#blog-post #blog-post-on-go li {
+#blog-post-on-go li {
   font-size: 18px;
   color: #375EAB;
   font-weight: bold;
