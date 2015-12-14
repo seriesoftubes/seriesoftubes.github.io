@@ -19,7 +19,7 @@ h1, h2, h3 {
 
 
 /* Fade in/out for blog articles and entire sections. */
-section, #blog article {
+section, #blog-post {
   opacity: 0;
   height: 0;
   overflow: hidden;
@@ -30,14 +30,14 @@ section, #blog article {
   -ms-transition: all 0.8s ease-in-out;
   transition: all 0.8s ease-out;
 }
-section.showing, #blog article.showing {
+section.showing, #blog-post.showing {
     opacity: 1;
     height: auto;
 }
 
 
 /* Give nice appearance to all the social imagey-links to LinkedIn et al. */
-nav img {
+#social-links img {
   vertical-align: top;
   display:  block;
   float: left;
@@ -52,11 +52,11 @@ nav img {
   -ms-transition: box-shadow 0.2s ease-in-out;
   transition: box-shadow 0.2s ease-in-out;
 }
-nav img:hover {
+#social-links img:hover {
   border: 0.05em outset #333333;
   box-shadow: 10px 5px 5px black;
 }
-nav img:active {
+#social-links img:active {
   border: 0.1em outset #222222;
   box-shadow: inset 0.2em 0 0 0.2em #27496d, inset 0 0.5em 1em #193047;
 }
@@ -70,21 +70,20 @@ a {
 a:hover {
   text-decoration: underline;
 }
-a:visited {
+
+/* Blog navigation and blog article specific stuff. */
+#blog-navigation a:visited {
   color: #bebcb9;
 }
-
-#blog article {
-  max-width: 45em;
-}
-#blog nav button {
+#blog-navigation button {
   display: none;
 }
-#blog nav button.showing {
+#blog-navigation button.showing {
   display: inline;
 }
-
-
+#blog-post {
+  max-width: 45em;
+}
 #blog-post li {
   font-weight: bold;
 }
