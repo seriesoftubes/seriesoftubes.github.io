@@ -18,12 +18,6 @@
     this.home_.classList.add(SHOWING);
   };
 
-  /** Shows the blog if it's hiding; hides it if it's showing. */
-  MainController.prototype.showOrHideBlog = function() {
-    this.blogIsShowing_ ? this.hideBlog() : this.showBlog();
-    this.blogIsShowing_ = !this.blogIsShowing_;
-  };
-
 
   var BlogController = function(postContainer, listOfPosts, backToPostsButton) {
     this.postContainer_ = postContainer;
@@ -33,8 +27,12 @@
     this.cachedPosts_ = {};
   };
 
+  BlogController.prototype.showTheBlogPost_ = function() {
+    this.postContainer_.classList.add(SHOWING);
+  };
+
   BlogController.prototype.hideTheBlogPost_ = function() {
-    if (this.postContainer_) this.postContainer_.classList.remove(SHOWING);
+    this.postContainer_.classList.remove(SHOWING);
   };
 
   BlogController.prototype.showBackToPostsButton_ = function() {
@@ -53,17 +51,20 @@
     this.listOfPosts_.style.display = 'block';
   };
 
+  BlogController.prototype.refillPostContainer_ = function(postDomNode) {
+    this.postContainer_.innerHTML = '';
+    this.postContainer_.appendChild(postDomNode);
+  };
+
   BlogController.prototype.loadBlogPostAsync_ = function(postId) {
     var request = new XMLHttpRequest();
     request.responseType = 'document';
     request.overrideMimeType('text/html; charset=utf-8');
     var self = this;
     request.onload = function() {
-      self.postContainer_.innerHTML = '';
       // Assumes that your post has 1 div that contains the whole post.
-      var postNode = request.response.body.childNodes[0];
-      self.cachedPosts_[postId] = postNode;
-      self.postContainer_.appendChild(postNode);
+      self.cachedPosts_[postId] = request.response.body.childNodes[0];
+      self.refillPostContainer_(self.cachedPosts_[postId]);
     };
     request.open('GET', '/posts/' + postId + '.html');
     request.send();
@@ -71,15 +72,14 @@
 
   BlogController.prototype.showBlogPost = function(postId) {
     if (postId in this.cachedPosts_) {
-      this.postContainer_.innerHTML = '';
-      this.postContainer_.appendChild(this.cachedPosts_[postId]);
+      this.refillPostContainer_(this.cachedPosts_[postId]);
     } else  {
       this.loadBlogPostAsync_(postId);
     }
 
     this.hideListOfPosts_();
     this.showBackToPostsButton_();
-    this.postContainer_.classList.add(SHOWING);
+    this.showTheBlogPost_();
   };
 
   BlogController.prototype.goBackToPostsList = function() {
