@@ -82,12 +82,13 @@ a:hover {
   display: none;
   font-size: 0.777em;
   opacity: 0.6;
+  cursor: pointer;
 }
 #blog-back-links span.showing {
   display: inline;
 }
 #btn-back-to-post-links {
-  padding-left: 1em;
+  margin-left: 1em;
 }
 #blog-post {
   max-width: 45em;
