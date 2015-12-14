@@ -65,6 +65,8 @@ section.showing, #blog-post.showing {
 /* Give nice appearance to all anchor tags. */
 a {
   color: black;
+  font-weight: 500;
+  font-size: 1.03em;
   text-decoration: none;
 }
 a:hover {
