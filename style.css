@@ -93,6 +93,12 @@ a:hover {
 #blog-post {
   max-width: 45em;
 }
-#blog-post li {
+
+
+/* Settings for specific blog posts. */
+#blog-post #blog-post-on-go {
+  font-family:Arial,sans-serif;
+}
+#blog-post #blog-post-on-go li {
   font-weight: bold;
 }
