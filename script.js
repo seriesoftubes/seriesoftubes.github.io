@@ -5,7 +5,7 @@
     this.home_ = homeView;
     this.blog_ = blogView;
 
-    this.blogIsShowing_ = blog.classList.contains(SHOWING);
+    this.blogIsShowing_ = blogView.classList.contains(SHOWING);
   };
 
   MainController.prototype.showBlog = function() {
