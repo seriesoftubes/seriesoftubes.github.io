@@ -57,16 +57,22 @@
   };
 
   BlogController.prototype.loadBlogPostAsync_ = function(postId) {
-    var request = new XMLHttpRequest();
+    var request = window.XMLHttpRequest ?
+        new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     request.responseType = 'document';
     request.overrideMimeType('text/html; charset=utf-8');
+    request.open('GET', '/posts/' + postId + '.html', true);
+    // Ensures that pages are not cached in Google Chrome and Firefox.
+    request.setRequestHeader('cache-control', 'no-cache');
+    request.setRequestHeader('pragma', 'no-cache');
+    request.setRequestHeader('expires', '0');
+
     var self = this;
     request.onload = function() {
       // Assumes that your post has 1 div that contains the whole post.
       self.cachedPosts_[postId] = request.response.body.childNodes[0];
       self.refillPostContainer_(self.cachedPosts_[postId]);
     };
-    request.open('GET', '/posts/' + postId + '.html');
     request.send();
   };
 
