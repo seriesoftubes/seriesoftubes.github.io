@@ -89,6 +89,48 @@
   };
 
 
+  var Router = function(mainCtrl, blogCtrl, blogPostLinkContainers) {
+    this.mainCtrl_ = mainCtrl;
+    this.blogCtrl_ = blogCtrl;
+
+    var blogPostHashes = {};
+    for (var i = 0; i < blogPostLinkContainers.length; i++) {
+      var anchor = blogPostLinkContainers[i].children[0];
+      blogPostHashes[anchor.getAttribute('href')] = true;
+    };
+    this.blogPostHashes_ = blogPostHashes;
+  };
+
+  Router.prototype.toHomeView_ = function() {
+    this.blogCtrl_.goBackToPostsList();
+    this.mainCtrl_.hideBlog();
+  };
+
+  Router.prototype.toListOfBlogPosts_ = function() {
+    this.blogCtrl_.goBackToPostsList();
+    this.mainCtrl_.showBlog();
+  };
+
+  Router.prototype.toBlogPost_ = function(postId) {
+    this.mainCtrl_.showBlog();
+    this.blogCtrl_.showBlogPost(postId);
+  };
+
+  Router.prototype.syncShownViewWithUrlHash = function() {
+    var urlHash = window.location.hash;
+
+    if (urlHash in {'#': 1, '/': 1, '': 1, '#/': 1}) {
+      this.toHomeView_();
+    } else if (urlHash === '#/posts') {
+      this.toListOfBlogPosts_();
+    } else if (this.blogPostHashes_[urlHash]) {
+      this.toBlogPost_(urlHash.slice('#/posts/'.length));
+    } else {
+      this.toHomeView_();
+    }
+  };
+
+
   (function() {
     var mainCtrl = new MainController(
         document.getElementById('home'),
@@ -101,42 +143,13 @@
         document.getElementById('btn-back-to-post-links')
     );
 
-    var changeRoute = function(urlHash) {
-      var home = function() {
-        blogCtrl.goBackToPostsList();
-        mainCtrl.hideBlog();
-      };
+    var router = new Router(
+        mainCtrl,
+        blogCtrl,
+        document.getElementsByClassName('blog-post-link')
+    );
 
-      var posts = function() {
-        blogCtrl.goBackToPostsList();
-        mainCtrl.showBlog();
-      };
-
-      var post = function(postId) {
-        mainCtrl.showBlog();
-        blogCtrl.showBlogPost(postId);
-      };
-
-      var blogPostHashes = {};
-      var linkContainers = document.getElementsByClassName('blog-post-link');
-      for (var i = 0; i < linkContainers.length; i++) {
-        var anchor = linkContainers[i].children[0];
-        blogPostHashes[anchor.getAttribute('href')] = true;
-      }
-
-      if (urlHash in {'#': 1, '/': 1, '': 1, '#/': 1}) {
-        home();
-      } else if (urlHash === '#/posts') {
-        posts();
-      } else if (blogPostHashes[urlHash]) {
-        post(urlHash.slice('#/posts/'.length));
-      } else {
-        home();
-      }
-    };
-    changeRoute(window.location.hash);
-    window.addEventListener('hashchange', function(evt) {
-      changeRoute(window.location.hash);
-    });
+    router.syncShownViewWithUrlHash();
+    window.addEventListener('hashchange', router.syncShownViewWithUrlHash.bind(router));
   })();
 })();
