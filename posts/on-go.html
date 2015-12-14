@@ -1,14 +1,14 @@
 <div style="font-family:Arial,sans-serif;">
   <h2>On Go</h2>
 
-  <p>Go tries to uniquely solve 3 problems for large teams writing huge "concurrent" programs:</p>
+  <p>Go tries to uniquely solve 3 problems for large teams writing huge multi-threaded programs:</p>
   <ol>
     <li>Code gets way harder to maintain as soon as you step into the realm of multi-threading.</li>
     <p>
-    Humans are built to understand the world as a story of sequential events.  Multi-threaded code throws that model of reality out the window.  For multi-threaded code, it's <em>even more important</em> than usual for humans to be able to easily visualize what's going on inside it. Go's utter lack of features makes that easier to do.
+    Humans are built to understand the world as a story of sequential events.  Multi-threaded code throws that model of reality out the window.  So for multi-threaded code, it's <em>even more important</em> than usual for people to easily visualize what's going on inside it. Go's stripped-down, transparent language features make it easier to deeply understand multi-threaded programs.
     </p>
     <p>
-    All Go programs are limited to a tiny number of concurrency primitives with well-known behaviors, and further, no one is allowed to use inheritance/generics to mix complexity into the primitives.  So when you look at anyone's Go code, you can feel assured that nothing too crazy is going on.  Of course, that also makes Go frustratingly verbose at times.
+    All Go programs are limited to a tiny number of concurrency primitives with well-known behaviors, and further, no one is allowed to use inheritance/generics to mix complexity into any data structures.  So when you look at anyone's Go code, you're automatically assured that nothing too crazy is going on, and that concurrency primitives will behave the same way, no matter what.  Of course, that also makes Go frustratingly verbose at times.
     </p>
     <p>
     Nick Snyder wrote a great
@@ -17,18 +17,18 @@
 
     <li>Knowledge of abstractions is lost as devs switch teams/companies.  One person's promotion becomes another's hunk of incomprehensible garbage to debug.</li>
     <p>
-    Go encourages you to stop worrying about writing/integrating the One Abstraction to Rule Them All and keep building with its tiny set of simple building blocks.  Example: when I started with Go, I made a generic group-by function like Python's itertools.groupby.  It worked, had 100% test coverage, and was fast-ish.  But it took almost the same amount of code to call my generic iterator as it did to write a hand-tuned loop to accomplish the same thing.  Plus (as a reviewer pointed out), my supposedly-generic code wasn't generic enough to cover myriad cases that arise during certain concurrency conditions.
+    Go encourages you to stop worrying about writing/integrating the One Abstraction to Rule Them All and keep building with its tiny set of simple building blocks.  Example: when I started with Go, I made a generic group-by function like Python's itertools.groupby.  It worked, had 100% test coverage, and was fast-ish.  But it took almost the same amount of code to call my generic iterator as it did to write a hand-tuned loop to accomplish the same thing.  Plus (as a reviewer pointed out), my supposedly-generic code wasn't generic enough to cover myriad cases that arise in certain concurrency patterns.
     </p>
     <p>
     It feels like Go is begging you "Please just solve it for yourself and move on; don't try to force your solution on others."  If you really do need to expose an abstraction to others, Go gives you interfaces (basically sets of methods), which grant your downstream dependencies great flexibility in integrating your abstraction.
     </p>
 
-    <li>It is awful when your team must spend 30+ minutes waiting for code to compile/test/deploy, just so they can test tiny changes.</li>
+    <li>It's bad when your team must spend 30+ minutes waiting for code to compile/test/deploy, just so they can test tiny changes.</li>
     <p>
     This is just icing on the cake.
     </p>
     <p>
-    Long compile/test/deploy times incentivize devs to discard features and/or cut corners, especially when there's a tight deadline.  Obviously, the faster you can iterate, the better off you are.  Go compiles way, way faster than C++ in general, but throw in multi-threading with accurate race detection, and the difference is even greater.  Go's <a target="_blank" href="https://blog.golang.org/race-detector">race detector</a> guarantees 0 false positives (which I'm not sure is even possible to do in other languages) and it only increases run time and memory usage by like 10X while it's active.
+    Long compile/test/deploy times incentivize devs to discard features and/or cut corners, especially when there's a tight deadline.  Obviously, the faster you can iterate, the better off you are.  Go compiles much faster than C++ in general, but throw in multi-threading with accurate race detection, and the difference is even greater.  Go's <a target="_blank" href="https://blog.golang.org/race-detector">race detector</a> guarantees 0 false positives (which I'm not sure is even possible to do in other languages) and it only increases run time and memory usage by like 10X while it's active.
     </p>
   </ol>
 
