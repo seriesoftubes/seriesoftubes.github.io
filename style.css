@@ -19,10 +19,11 @@ h1, h2, h3 {
 
 
 /* Fade in/out for blog articles and entire sections. */
-section, #blog-post {
+section, #blog-post, #blog-post-links {
   opacity: 0;
   height: 0;
   overflow: hidden;
+  margin: 0;
 
   -webkit-transition: all 0.8s ease-in-out;
   -moz-transition: all 0.8s ease-in-out;
@@ -30,7 +31,7 @@ section, #blog-post {
   -ms-transition: all 0.8s ease-in-out;
   transition: all 0.8s ease-out;
 }
-section.showing, #blog-post.showing {
+section.showing, #blog-post.showing, #blog-post-links.showing {
     opacity: 1;
     height: auto;
 }

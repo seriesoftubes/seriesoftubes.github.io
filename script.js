@@ -41,12 +41,12 @@
     this.btnBackToPosts_.classList.remove(SHOWING);
   };
 
-  BlogController.prototype.hideListOfPosts_ = function() {
-    this.listOfPosts_.style.display = 'none';
+  BlogController.prototype.showListOfPosts_ = function() {
+    this.listOfPosts_.classList.add(SHOWING);
   };
 
-  BlogController.prototype.showListOfPosts_ = function() {
-    this.listOfPosts_.style.display = 'block';
+  BlogController.prototype.hideListOfPosts_ = function() {
+    this.listOfPosts_.classList.remove(SHOWING);
   };
 
   BlogController.prototype.refillPostContainer_ = function(postDomNode) {
