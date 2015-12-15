@@ -55,7 +55,7 @@ section.showing, #blog-post.showing, #blog-post-links.showing {
 }
 #social-links img:hover {
   border: 0.05em outset #333333;
-  box-shadow: 10px 5px 5px black;
+  box-shadow: 6px 2px 2px black;
 }
 #social-links img:active {
   border: 0.1em outset #222222;
