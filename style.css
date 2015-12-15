@@ -121,3 +121,6 @@ a:hover {
   color: #375EAB;
   font-weight: bold;
 }
+#blog-post-on-go a {
+  color: #375EAB;
+}
