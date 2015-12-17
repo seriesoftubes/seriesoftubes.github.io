@@ -130,7 +130,8 @@
     } else if (this.blogPostHashes_[urlHash]) {
       this.toBlogPost_(urlHash.slice('#/posts/'.length));
     } else {
-      this.toHomeView_();
+      // redirect to home view if route unknown.
+      window.location.hash = '#';
     }
   };
 
