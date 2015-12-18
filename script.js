@@ -136,25 +136,23 @@
   };
 
 
-  (function() {
-    var mainCtrl = new MainController(
-        document.getElementById('home'),
-        document.getElementById('blog')
-    );
+  var mainCtrl = new MainController(
+      document.getElementById('home'),
+      document.getElementById('blog')
+  );
 
-    var blogCtrl = new BlogController(
-        document.getElementById('blog-post'),
-        document.getElementById('blog-post-links'),
-        document.getElementById('btn-back-to-post-links')
-    );
+  var blogCtrl = new BlogController(
+      document.getElementById('blog-post'),
+      document.getElementById('blog-post-links'),
+      document.getElementById('btn-back-to-post-links')
+  );
 
-    var router = new Router(
-        mainCtrl,
-        blogCtrl,
-        document.getElementsByClassName('blog-post-link')
-    );
+  var router = new Router(
+      mainCtrl,
+      blogCtrl,
+      document.getElementsByClassName('blog-post-link')
+  );
 
-    router.syncShownViewWithUrlHash();
-    window.addEventListener('hashchange', router.syncShownViewWithUrlHash.bind(router));
-  })();
+  router.syncShownViewWithUrlHash();
+  window.addEventListener('hashchange', router.syncShownViewWithUrlHash.bind(router));
 })();
