@@ -49,8 +49,12 @@
     this.listOfPosts_.classList.remove(SHOWING);
   };
 
-  BlogController.prototype.refillPostContainer_ = function(postDomNode) {
+  BlogController.prototype.emptyOutPostContainer = function() {
     this.postContainer_.innerHTML = '';
+  };
+
+  BlogController.prototype.refillPostContainer_ = function(postDomNode) {
+    this.emptyOutPostContainer();
     this.postContainer_.appendChild(postDomNode);
   };
 
@@ -88,6 +92,7 @@
 
   BlogController.prototype.goBackToPostsList = function() {
     this.hideTheBlogPost_();
+    this.emptyOutPostContainer();
     this.showListOfPosts_();
     this.hideBackToPostsButton_();
   };
@@ -116,6 +121,7 @@
   };
 
   Router.prototype.toBlogPost_ = function(postId) {
+    this.blogCtrl_.emptyOutPostContainer();
     this.mainCtrl_.showBlog();
     this.blogCtrl_.showBlogPost(postId);
   };
