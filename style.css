@@ -91,6 +91,9 @@ a:hover {
 #blog-post {
   max-width: 45em;
 }
+.blog-post-link {
+  margin-bottom: 0.38em;
+}
 
 
 /* Settings for specific blog posts. */
@@ -121,4 +124,27 @@ a:hover {
 }
 #blog-post-on-go a {
   color: #375EAB;
+}
+
+#blog-post-on-this-website {
+  color: rgba(0,0,0,0.8);
+  word-break: break-all;
+  word-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: Georgia,Cambria,"Times New Roman",Times,serif;
+  letter-spacing: -0.003em;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 21px;
+  line-height: 1.58;
+  width: 40em;
+}
+
+#blog-post-on-this-website h1 {
+  font-family: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 36px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
