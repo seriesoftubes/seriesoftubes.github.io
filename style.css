@@ -3,7 +3,7 @@ main {
   color: #636268;
   font-family: Georgia, Serif;
   font-size: 1.3em;
-  padding: 2em;
+  margin: 3%;
 }
 
 h1, h2, h3 {
@@ -128,8 +128,6 @@ a:hover {
 
 #blog-post-on-this-website {
   color: rgba(0,0,0,0.8);
-  word-break: break-all;
-  word-wrap: break-word;
   -webkit-font-smoothing: antialiased;
   font-family: Georgia,Cambria,"Times New Roman",Times,serif;
   letter-spacing: -0.003em;
@@ -137,7 +135,6 @@ a:hover {
   font-style: normal;
   font-size: 21px;
   line-height: 1.58;
-  width: 40em;
 }
 
 #blog-post-on-this-website h1 {
