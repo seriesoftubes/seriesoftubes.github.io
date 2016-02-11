@@ -106,8 +106,8 @@ a:not(.social-link):hover {
   line-height: 1.58;
 }
 #blog-post div.normal li {
-  line-height: 1.3;
-  margin-bottom: 0.25em;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
 }
 #blog-post div.normal h1 {
   font-family: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
