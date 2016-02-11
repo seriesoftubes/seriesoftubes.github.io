@@ -89,6 +89,10 @@ a:not(.social-link):hover {
   margin-bottom: 0.38em;
 }
 
+#blog {
+  margin: 1%;
+}
+
 /* Settings for all blog posts. */
 #blog-post {
   max-width: 45em;
