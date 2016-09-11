@@ -55,6 +55,7 @@ section.showing, #blog-post.showing, #blog-post-links.showing {
   display:  inline-block;
   margin-left: 0.2em;
   border-radius: 10%;
+  cursor: pointer;
 }
 
 /* Give nice appearance to all anchor tags. */
@@ -62,9 +63,6 @@ a {
   color: black;
   font-weight: 500;
   font-size: 1.03em;
-}
-a:not(.social-link):hover {
-  text-decoration: underline;
 }
 
 
