@@ -161,14 +161,4 @@
 
   router.syncShownViewWithUrlHash();
   window.addEventListener('hashchange', router.syncShownViewWithUrlHash.bind(router));
-
-  document.getElementById('linkedin-icon').addEventListener('click', function(e) {
-    window.open('https://www.linkedin.com/in/bweidenbaum');
-  });
-  document.getElementById('github-icon').addEventListener('click', function(e) {
-    window.open('https://www.github.com/seriesoftubes');
-  });
-  document.getElementById('email-icon').addEventListener('click', function(e) {
-    window.open('mailto:brianweiden+brianweidenbaum.com@gmail.com?subject=Hi');
-  });
 })();
