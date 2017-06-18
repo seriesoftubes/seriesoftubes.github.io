@@ -1,5 +1,7 @@
 (function() {
   var SHOWING = 'showing';
+  var POSTS_HASH = '#/posts';
+
 
   var MainController = function(homeView, blogView) {
     this.home_ = homeView;
@@ -17,10 +19,11 @@
   };
 
 
-  var BlogController = function(postContainer, listOfPosts, backToPostsButton) {
+  var BlogController = function(postContainer, listOfPosts, backToPostsButton, spinner) {
     this.postContainer_ = postContainer;
     this.listOfPosts_ = listOfPosts;
     this.btnBackToPosts_ = backToPostsButton;
+    this.spinner_ = spinner;
 
     this.cachedPosts_ = {};
   };
@@ -59,8 +62,11 @@
   };
 
   BlogController.prototype.loadBlogPostAsync_ = function(postId) {
-    var request = window.XMLHttpRequest ?
-        new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    this.spinner_.style.display = 'block';
+    var startedAt = +(new Date());
+    var minLoadingMilliseconds = 500;  // Allows animation frames to run.
+
+    var request = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     request.responseType = 'document';
     request.overrideMimeType('text/html; charset=utf-8');
     request.open('GET', '/posts/' + postId + '.html', true);
@@ -70,11 +76,33 @@
     request.setRequestHeader('expires', '0');
 
     var self = this;
-    request.onload = function() {
+    var loadThePost = function() {
+      self.spinner_.style.display = 'none';
       // Assumes that your post has 1 div that contains the whole post.
       self.cachedPosts_[postId] = request.response.body.childNodes[0];
       self.refillPostContainer_(self.cachedPosts_[postId]);
     };
+    request.onreadystatechange = function() {
+      if (request.readyState != XMLHttpRequest.DONE) {
+        return;
+      }
+
+      if (request.status != 200) {
+        self.spinner_.style.display = 'none';
+        alert("Sorry, that post couldn't be loaded.");
+        window.location.hash = POSTS_HASH;
+        return;
+      }
+
+      var spentMilliseconds = +(new Date()) - startedAt;
+      var remainingMilliseconds = minLoadingMilliseconds - spentMilliseconds;
+      if (remainingMilliseconds > 0) {
+        setTimeout(loadThePost, remainingMilliseconds);
+      } else {
+        loadThePost();
+      }
+    };
+
     request.send();
   };
 
@@ -131,7 +159,7 @@
 
     if (urlHash in {'#': 1, '/': 1, '': 1, '#/': 1}) {
       this.toHomeView_();
-    } else if (urlHash === '#/posts') {
+    } else if (urlHash === POSTS_HASH) {
       this.toListOfBlogPosts_();
     } else if (this.blogPostHashes_[urlHash]) {
       this.toBlogPost_(urlHash.slice('#/posts/'.length));
@@ -150,7 +178,8 @@
   var blogCtrl = new BlogController(
       document.getElementById('blog-post'),
       document.getElementById('blog-post-links'),
-      document.getElementById('btn-back-to-post-links')
+      document.getElementById('btn-back-to-post-links'),
+      document.getElementById('the-loading-spinner')
   );
 
   var router = new Router(
