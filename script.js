@@ -1,6 +1,7 @@
 (function() {
   var SHOWING = 'showing';
   var POSTS_HASH = '#/posts';
+  var HOME_VIEW_HASHES = {'#': 1, '/': 1, '': 1, '#/': 1};
 
 
   var MainController = function(homeView, blogView) {
@@ -155,14 +156,14 @@
   };
 
   Router.prototype.syncShownViewWithUrlHash = function() {
-    var urlHash = window.location.hash;
+    var urlHash = (window.location.hash || '').trim();
 
-    if (urlHash in {'#': 1, '/': 1, '': 1, '#/': 1}) {
+    if (urlHash in HOME_VIEW_HASHES) {
       this.toHomeView_();
     } else if (urlHash === POSTS_HASH) {
       this.toListOfBlogPosts_();
     } else if (this.blogPostHashes_[urlHash]) {
-      this.toBlogPost_(urlHash.slice('#/posts/'.length));
+      this.toBlogPost_(urlHash.slice(POSTS_HASH.length + 1));
     } else {
       // redirect to home view if route unknown.
       window.location.hash = '#';
