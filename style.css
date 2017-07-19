@@ -1,7 +1,7 @@
 
 main {
   color: #636268;
-  font-family: Georgia, Serif;
+  font-family: 'Exo 2', sans-serif;
   font-size: 1.2em;
 }
 
@@ -21,7 +21,9 @@ h1, h2, h3 {
 }
 
 #my-motto {
-  padding-bottom: 2em;
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.2em;
+  padding-bottom: 5em;
 }
 
 
@@ -133,26 +135,12 @@ a {
 
 /* Settings for normal blog posts. */
 #blog-post div.normal {
-  color: rgba(0,0,0,0.8);
-  -webkit-font-smoothing: antialiased;
-  font-family: Georgia,Cambria,"Times New Roman",Times,serif;
-  letter-spacing: -0.003em;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 21px;
-  line-height: 1.58;
 }
 #blog-post div.normal li {
   line-height: 1.2;
   margin-bottom: 0.5em;
 }
 #blog-post div.normal h1 {
-  font-family: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 36px;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
 }
 
 /* Settings for specific blog posts. */
