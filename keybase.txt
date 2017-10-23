@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/seriesoftubes
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://brianweidenbaum.com
+  * I am seriesoftubes (https://keybase.io/seriesoftubes) on keybase.
+  * I have a public key ASDXx6oJGZEMXzaDzYbFPsA_JZHXC3Zt-arfH8tn0GNZygo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120d7c7aa0919910c5f3683cd86c53ec03f2591d70b766df9aadf1fcb67d06359ca0a",
+      "host": "keybase.io",
+      "kid": "0120d7c7aa0919910c5f3683cd86c53ec03f2591d70b766df9aadf1fcb67d06359ca0a",
+      "uid": "2642fab61307dd5852fccf1b615e4019",
+      "username": "seriesoftubes"
+    },
+    "merkle_root": {
+      "ctime": 1508732075,
+      "hash": "290b424ae38e8054e1e9b5198acc24665f02e48506515ae378d616470faa50a36ef9f6a500c499c03436e9452eeef6b9062b4a8d4072086096954a59bd396b68",
+      "hash_meta": "529d8292bca3838ef86e23d898a21d2b7a383d33119eabd96882f657ee255acb",
+      "seqno": 1616921
+    },
+    "service": {
+      "hostname": "brianweidenbaum.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "1.0.31"
+  },
+  "ctime": 1508732150,
+  "expire_in": 504576000,
+  "prev": "4f65ab2f0a3ae29a42dadda0df5d8695faa868801ca8cf5e49c2581aaa8a9596",
+  "seqno": 6,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg18eqCRmRDF82g82GxT7APyWR1wt2bfmq3x/LZ9BjWcoKp3BheWxvYWTFA1B7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwZDdjN2FhMDkxOTkxMGM1ZjM2ODNjZDg2YzUzZWMwM2YyNTkxZDcwYjc2NmRmOWFhZGYxZmNiNjdkMDYzNTljYTBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwZDdjN2FhMDkxOTkxMGM1ZjM2ODNjZDg2YzUzZWMwM2YyNTkxZDcwYjc2NmRmOWFhZGYxZmNiNjdkMDYzNTljYTBhIiwidWlkIjoiMjY0MmZhYjYxMzA3ZGQ1ODUyZmNjZjFiNjE1ZTQwMTkiLCJ1c2VybmFtZSI6InNlcmllc29mdHViZXMifSwibWVya2xlX3Jvb3QiOnsiY3RpbWUiOjE1MDg3MzIwNzUsImhhc2giOiIyOTBiNDI0YWUzOGU4MDU0ZTFlOWI1MTk4YWNjMjQ2NjVmMDJlNDg1MDY1MTVhZTM3OGQ2MTY0NzBmYWE1MGEzNmVmOWY2YTUwMGM0OTljMDM0MzZlOTQ1MmVlZWY2YjkwNjJiNGE4ZDQwNzIwODYwOTY5NTRhNTliZDM5NmI2OCIsImhhc2hfbWV0YSI6IjUyOWQ4MjkyYmNhMzgzOGVmODZlMjNkODk4YTIxZDJiN2EzODNkMzMxMTllYWJkOTY4ODJmNjU3ZWUyNTVhY2IiLCJzZXFubyI6MTYxNjkyMX0sInNlcnZpY2UiOnsiaG9zdG5hbWUiOiJicmlhbndlaWRlbmJhdW0uY29tIiwicHJvdG9jb2wiOiJodHRwczoifSwidHlwZSI6IndlYl9zZXJ2aWNlX2JpbmRpbmciLCJ2ZXJzaW9uIjoxfSwiY2xpZW50Ijp7Im5hbWUiOiJrZXliYXNlLmlvIGdvIGNsaWVudCIsInZlcnNpb24iOiIxLjAuMzEifSwiY3RpbWUiOjE1MDg3MzIxNTAsImV4cGlyZV9pbiI6NTA0NTc2MDAwLCJwcmV2IjoiNGY2NWFiMmYwYTNhZTI5YTQyZGFkZGEwZGY1ZDg2OTVmYWE4Njg4MDFjYThjZjVlNDljMjU4MWFhYThhOTU5NiIsInNlcW5vIjo2LCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQO8FehA9EsQE31488Y2OympKdEyvA0ilHUVDOU0t6vozij5ifZ0Aw12HFKuFs+FTqL7Wgoz2UcMnn/mUe4mJGQ2oc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCDVcrXFzGswPJbY1qorXtQZ8TWG/wtOUPzspE6r6wuo4KN0YWfNAgKndmVyc2lvbgE=
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/seriesoftubes
+
+==================================================================
+
