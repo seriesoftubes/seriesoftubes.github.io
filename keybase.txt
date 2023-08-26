@@ -54,3 +54,59 @@ View my publicly-auditable identity here: https://keybase.io/seriesoftubes
 
 ==================================================================
 
+==================================================================
+https://keybase.io/seriesoftubes
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://seriesoftubes.github.io
+  * I am seriesoftubes (https://keybase.io/seriesoftubes) on keybase.
+  * I have a public key ASAaGSo-hXxNd9ZpcwLQaMGwSYa3WO6C-FqHkJ2jV9m-1go
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01201a192a3e857c4d77d6697302d068c1b04986b758ee82f85a87909da357d9bed60a",
+      "host": "keybase.io",
+      "kid": "01201a192a3e857c4d77d6697302d068c1b04986b758ee82f85a87909da357d9bed60a",
+      "uid": "2642fab61307dd5852fccf1b615e4019",
+      "username": "seriesoftubes"
+    },
+    "merkle_root": {
+      "ctime": 1693054403,
+      "hash": "b0cdfd87f96cc86f1408d61ece25f6f5c13e18e431cfd898ba83657f71a92dd56d5c2bc792c1d6b17e2b4dd05d76d2e287245bef3e5fa5d4a12beedf66689a3a",
+      "hash_meta": "6a4259a93007000a9bf63925c8cd03d675fb2503b7c8fe52ecb3fe8879e6f58e",
+      "seqno": 24853678
+    },
+    "service": {
+      "entropy": "HiF8px7WlTv/lRaukrMRSR7Y",
+      "hostname": "seriesoftubes.github.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "6.2.1"
+  },
+  "ctime": 1693054443,
+  "expire_in": 504576000,
+  "prev": "79d0fed9ccd3efb8ed72ac25fbf69d18801b0df86facfc2bfc707d817fd81d49",
+  "seqno": 13,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgGhkqPoV8TXfWaXMC0GjBsEmGt1jugvhah5Cdo1fZvtYKp3BheWxvYWTESpcCDcQgedD+2czT77jtcqwl+/adGIAbDfhvrPwr/HB9gX/YHUnEIAasthoXzaghP81bComOe72Zz71aDnkgViM99K2yn3YSAgHCo3NpZ8RAZmV5smFloB4PTpTIRP84iwQsl1pC+DIBUqfZb0whf7+n/AZ5QCx1v+oTyVoP1ubMcAvEas1iCFltembwIjcMAahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIHTs2qcQMnRdti7364NongFVWpXMSy53BFbu7l7QSclso3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/seriesoftubes
+
+==================================================================
